@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saving/screens/saving_item_screen.dart';
 import 'empty_saving_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:saving/models/models.dart';
@@ -14,6 +15,17 @@ class SavingsScreen extends StatelessWidget {
         child: const Icon(Icons.add),
         onPressed: (){
           //TODO 11: Present SavingItemScreen
+          final manager = Provider.of<SavingManager>(context, listen: false);
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context) => SavingItemScreen(
+                  onCreate: (item){
+                    manager.addItem(item);
+                    Navigator.pop(context);
+                  },
+                  onUpdate: (item){},
+              ),
+          ),
+          );
 
         },
       ),
