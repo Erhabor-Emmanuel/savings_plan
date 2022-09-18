@@ -3,7 +3,7 @@ import 'dart:ui';
 enum Importance{
   low,
   medium,
-  height
+  high
 }
 
 class SavingItem {
@@ -22,7 +22,7 @@ class SavingItem {
     required this.color,
     required this.quantity,
     required this.date,
-    required this.isComplete
+    this.isComplete = false
 });
 
   SavingItem copyWith ({
